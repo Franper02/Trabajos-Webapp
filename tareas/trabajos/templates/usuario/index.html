@@ -1,0 +1,76 @@
+{% extends "usuario/indexlayout.html" %}
+
+{% load static %}
+
+{block titile} Trabajos Pendientes {endblock}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'usuario/index.css' %}">
+{% endblock %}
+
+{% block body%}
+<div class="tarjeta-contenedor">
+  <div class="tarjeta">
+    <div class="title">
+      <h1>Trabajo N°1</h1>
+    </div>
+    <div class="materia">
+      <h3>Instalaciones Industriales</h3>
+    </div>
+    <div class="entrega">
+      <h3>Fecha de entrega: 08/08</h3>
+    </div>
+    <div class="botones">
+      <button type="button" class="boton">
+        <a>Consignas</a>
+      </button>
+      <button type="button" class="boton">
+        <a>Material</a>
+      </button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="title">
+      <h1>Trabajo N°2</h1>
+    </div>
+    <div class="materia">
+      <h3>Instalaciones electricas</h3>
+    </div>
+    <div class="entrega">
+      <h3>Fecha de entrega: 08/08</h3>
+    </div>
+    <div class="botones">
+      <button type="button" class="boton">
+        <a>Consignas</a>
+      </button>
+      <button type="button" class="boton">
+        <a>Material</a>
+      </button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="title">
+      <h1>Trabajo N°3</h1>
+    </div>
+    <div class="materia">
+      <h3>Maquinas Electricas</h3>
+    </div>
+    <div class="entrega">
+      <h3>Fecha de entrega: 08/08</h3>
+    </div>
+    <div class="botones">
+      <button type="button" class="boton">
+        <a>Consignas</a>
+      </button>
+      <button type="button" class="boton">
+        <a>Material</a>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

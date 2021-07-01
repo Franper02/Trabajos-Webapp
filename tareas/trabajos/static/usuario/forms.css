@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+body {
+  font-family: "Varela Round", sans-serif;
+}
+
+.text {
+  color: white;
+  font-size: 1.4vw;
+  margin: 0.73vw 2.56vw;
+  font-weight: normal;
+  text-align: center;
+}
+
+.login {
+  padding: 2em;
+}
+
+.wrapper {
+  display: block;
+  width: 100%;
+}
+
+.input {
+  display: inline-block;
+  min-width: 12.22vw;
+  min-height: 3vw;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  text-align: left;
+  border-radius: 50px;
+  border: 1px solid#1b2956;
+  border-top: 1px solid#1b2956;
+  font-size: 0.9vw;
+  color: white;
+  height: 4vw;
+  padding: 2vw 1vw;
+  margin-bottom: 1vw;
+  background-color: #1b2956;
+}
+
+.head {
+  display: block;
+  float: right;
+  margin: 1vw 0px;
+}
+
+.opcion {
+  color: #7595c3;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1vw 1vw;
+  font-size: 0.9rem;
+  width: 10rem;
+}
+
+.flecha {
+  display: block;
+  float: right;
+  height: 30%;
+  width: 30%;
+  margin-left: 0.5vw;
+  opacity: 90%;
+}
+
+.boton {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 12.22vw;
+  min-height: 3vw;
+  vertical-align: middle;
+}
+
+.button {
+  background: linear-gradient(to right, #3123af, #7236fb);
+  border: none;
+  color: #fff;
+  border-radius: 2px;
+  height: 3vw;
+  min-width: 3.95vw;
+  text-align: center;
+  float: right;
+  margin: 2.19vw 0;
+  padding: 0 0.87vw;
+}
+
+input:focus {
+  outline: none;
+}
