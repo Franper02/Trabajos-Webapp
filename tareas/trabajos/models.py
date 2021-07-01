@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.deletion import CASCADE
+from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
+from django.db.models.signals import post_save
 
 
 class Usuario(AbstractUser):
@@ -10,7 +12,8 @@ class Usuario(AbstractUser):
 
 class Tps(models.Model):
 
-    users = models.ManyToManyField(Usuario)
+    users = models.ManyToManyField(
+        Usuario,  through='Tpsterminados')
     titulo = models.CharField(max_length=100)
 
     TECNOLOGIA_DE_LA_FABRICACION = 'TDF'
@@ -51,7 +54,19 @@ class Tps(models.Model):
     material = models.URLField()
     consignas = models.URLField()
 
-    status = models.BooleanField(default=True)
-
     def __str__(self):
         return self.titulo
+
+
+def taskdone(sender, instance, **kwargs):
+    for user in Usuario.objects.all():
+        Tpsterminados.objects.create(user=user, tps=Tps.objects.last())
+
+
+post_save.connect(taskdone, sender=Tps)
+
+
+class Tpsterminados(models.Model):
+    user = models.ForeignKey(Usuario, on_delete=CASCADE)
+    tps = models.ForeignKey(Tps, on_delete=CASCADE)
+    status = models.BooleanField(default=True)

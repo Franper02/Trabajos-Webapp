@@ -5,14 +5,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-from .models import Usuario
+from .models import Tpsterminados, Usuario, Tps
 
 # Create your views here.
 
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, "usuario/index.html")
+        trabajos = Tpsterminados.objects.filter(status=True)
+        return render(request, "usuario/index.html", {
+            'trabajos': trabajos
+        })
     else:
         return HttpResponseRedirect(reverse('acc:login'))
 
