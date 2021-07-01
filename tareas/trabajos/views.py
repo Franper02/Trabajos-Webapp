@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -12,7 +13,7 @@ from .models import Tpsterminados, Usuario, Tps
 
 def index(request):
     if request.user.is_authenticated:
-        trabajos = Tpsterminados.objects.filter(status=True)
+        trabajos = Tpsterminados.objects.filter(status=True, user=request.user)
         return render(request, "usuario/index.html", {
             'trabajos': trabajos
         })
@@ -69,6 +70,8 @@ def register_view(request):
         try:
             user = Usuario.objects.create_user(username, email, password)
             user.save()
+            for tp in Tps.objects.all():
+                Tpsterminados.objects.create(user=user, tps=tp)
 
         # si el nombre esta en uso tira un error (agregar mensaje de error!!)
         except IntegrityError:

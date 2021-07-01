@@ -65,14 +65,47 @@ body {
   min-width: 33%;
   min-height: 33%;
   margin: 0 2.5%;
+  margin-bottom: 0px !important;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  opacity: 87%;
+}
+
+.tarjeta-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 33%;
+  min-height: 33%;
+  margin: 0 2.5%;
+  margin-bottom: 0px !important;
   text-align: center;
   transition: all 0.2s ease-in-out;
   opacity: 87%;
 }
 
 .tarjeta:hover {
+  opacity: 100%;
+}
+
+.tarjeta-wrapper:hover {
   transform: scale(1.1);
   opacity: 100%;
+}
+
+.activo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entregado {
+  width: 95%;
+  height: 3vw;
+  background-color: crimson;
+  border-radius: 0 0 100px 100px;
+  border: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 .materia,
@@ -92,8 +125,15 @@ body {
   background: linear-gradient(to right, #3123af, #7236fb);
 }
 
+.title h1 {
+  font-size: 3.5vw;
+  margin: 0 5%;
+}
+
 .materia h3 {
   font-size: 2vw;
+  min-height: 5vw;
+  max-height: 5vw;
 }
 
 .entrega h3 {
@@ -109,6 +149,11 @@ body {
   min-width: 3.95vw;
   text-align: center;
   padding: 0 0.87vw;
+}
+
+.boton a {
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 992px) {
