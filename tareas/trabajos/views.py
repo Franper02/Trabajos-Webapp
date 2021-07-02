@@ -13,12 +13,32 @@ from .models import Tpsterminados, Usuario, Tps
 
 def index(request):
     if request.user.is_authenticated:
-        trabajos = Tpsterminados.objects.filter(status=True, user=request.user)
-        return render(request, "usuario/index.html", {
-            'trabajos': trabajos
-        })
+        if request.method == 'GET':
+            trabajos = Tpsterminados.objects.filter(
+                status=True, user=request.user)
+            return render(request, "usuario/index.html", {
+                'trabajos': trabajos
+            })
+        else:
+            trabajoid = request.POST['id']
+            Tpsterminados.objects.filter(id=trabajoid).update(status=False)
+            return HttpResponseRedirect(reverse('acc:finalizados'))
     else:
         return HttpResponseRedirect(reverse('acc:login'))
+
+
+def finalizados(request):
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            trabajos = Tpsterminados.objects.filter(
+                status=False, user=request.user)
+            return render(request, "usuario/finalizados.html", {
+                'trabajos': trabajos
+            })
+        else:
+            trabajoid = request.POST['id']
+            Tpsterminados.objects.filter(id=trabajoid).update(status=True)
+            return HttpResponseRedirect(reverse("acc:index"))
 
 
 def login_view(request):

@@ -5,7 +5,7 @@
 {block titile} Trabajos Pendientes {endblock}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'usuario/index.css' %}">
+<link rel="stylesheet" href="{% static 'usuario/finalizados.css' %}">
 {% endblock %}
 
 {% block body%}
@@ -33,13 +33,14 @@
         </div>
       </div>
       <div class="activo">
-        <form action="/" method="POST" class="form">
-          {% csrf_token %}
-          <input type="hidden" name="id" value="{{ trabajo.id }}">
-          <button type="submit" class="entregado">
-              Marcar como finalizado
-            </button>
-      </form>
+        <form action="/finalizados" method="POST" class="form">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ trabajo.id }}">
+            <button type="submit" class="entregado">
+                Marcar como pendiente
+              </button>
+        </form>
+
       </div>
     </div>
     {% endfor %}
