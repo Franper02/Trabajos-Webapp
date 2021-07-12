@@ -51,7 +51,7 @@ body {
 }
 
 .tarjeta-contenedor {
-  margin: 10%;
+  margin: 7% 7% 0% 7%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -62,8 +62,10 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  min-width: 33%;
-  min-height: 33%;
+  min-width: 90%;
+  width: 90%;
+  min-height: 100%;
+  height: 100%;
   margin: 0 2.5%;
   margin-bottom: 0px !important;
   text-align: center;
@@ -96,20 +98,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5%;
 }
 
 .form {
-  width: 100%;
+  width: 95%;
 }
 
 .entregado {
-  width: 95%;
+  width: 100%;
   height: 3vw;
   background-color: crimson;
   border-radius: 0 0 100px 100px;
   border: none;
   color: #fff;
   text-decoration: none;
+}
+
+#pendiente {
+  background-color: rgb(29, 194, 23) !important;
 }
 
 .materia,
@@ -127,21 +134,33 @@ body {
   color: white;
   margin: 0px !important;
   background: linear-gradient(to right, #3123af, #7236fb);
+  width: 100%;
+  min-height: 15%;
+  height: 20%;
+}
+
+.t {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
 }
 
 .title h1 {
-  font-size: 3.5vw;
-  margin: 0 5%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2rem;
+  margin: 5% 5%;
 }
 
 .materia h3 {
-  font-size: 2vw;
-  min-height: 5vw;
-  max-height: 5vw;
+  margin-top: 5%;
+  font-size: 1.5rem;
+  height: 4rem;
 }
 
 .entrega h3 {
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .boton {
@@ -150,37 +169,110 @@ body {
   color: #fff;
   border-radius: 2px;
   height: 3vw;
-  min-width: 3.95vw;
+  width: 7rem;
   text-align: center;
-  padding: 0 0.87vw;
 }
 
 .boton a {
   text-decoration: none;
   color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.empty-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.empty {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 3%;
+}
+
+.empty-p {
+  color: white;
+  font-size: 2rem;
+}
+
+.empty-p a {
+  color: #7236fb;
 }
 
 @media (max-width: 992px) {
   .tarjeta-contenedor {
     flex-direction: column;
+    margin-top: 6rem;
   }
-  .tarjeta {
-    margin-bottom: 6vw;
+  .tarjeta-wrapper {
+    padding-bottom: 6rem;
+    align-items: center;
+  }
+
+  .title {
+    height: 5rem;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+    margin-top: 0.5%;
   }
 
   .materia h3 {
-    font-size: 5vw;
+    font-size: 1.5rem;
+    height: 100%;
   }
   .entrega h3 {
-    font-size: 3vw;
+    font-size: 1rem;
+    margin-top: 1.5rem;
   }
 
   .boton {
-    height: 9vw;
-    width: 20vw;
+    height: 2.5rem;
+    width: 5.5rem;
   }
 
   .boton a {
-    font-size: 3vw;
+    font-size: 1rem;
+  }
+
+  #boton1 {
+    margin-right: 0.5rem;
+  }
+
+  #boton2 {
+    margin-left: 0.5rem;
+  }
+
+  .activo {
+    width: 95%;
+    margin-right: 0%;
+  }
+
+  .entregado {
+    height: 3rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .empty-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .empty {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .empty-p {
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
   }
 }

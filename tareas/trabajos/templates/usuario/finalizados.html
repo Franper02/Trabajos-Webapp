@@ -5,7 +5,7 @@
 {block titile} Trabajos Pendientes {endblock}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'usuario/finalizados.css' %}">
+<link rel="stylesheet" href="{% static 'usuario/index.css' %}">
 {% endblock %}
 
 {% block body%}
@@ -24,10 +24,10 @@
           <h3>Fecha de entrega: {{ trabajo.tps.fecha_entrega }}</h3>
         </div>
         <div class="botones">
-          <button type="button" class="boton">
+          <button type="button" class="boton" id="boton1">
             <a href="{{ trabajo.tps.consignas }}">Consignas</a>
           </button>
-          <button type="button" class="boton">
+          <button type="button" class="boton" id="boton2">
             <a href="{{ trabajo.tps.material }}">Material</a>
           </button>
         </div>
@@ -36,20 +36,21 @@
         <form action="/finalizados" method="POST" class="form">
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ trabajo.id }}">
-            <button type="submit" class="entregado">
+            <button type="submit" class="entregado" id="pendiente">
                 Marcar como pendiente
               </button>
         </form>
 
       </div>
     </div>
+
+    {% empty %}
+    <div class="empty-container">
+      <h1 class="empty">¡No finalizaste ningun trabajo!</h1>
+      <p class="empty-p">Probablemente tengas <a href="{% url 'acc:index' %}">Trabajos Pendientes</a></p>
+    </div>
+
     {% endfor %}
   </div>
-
-
-
-
-
-
 
 {% endblock %}
