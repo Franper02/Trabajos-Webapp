@@ -1,10 +1,13 @@
 from django.contrib.auth.models import User
+from django.http.response import StreamingHttpResponse
 from django.shortcuts import redirect, render
-from django.db import IntegrityError
+from django.db import IntegrityError, utils
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+import datetime
 
 from .models import Tpsterminados, Usuario, Tps
 
@@ -16,13 +19,24 @@ def index(request):
         if request.method == 'GET':
             trabajos = Tpsterminados.objects.filter(
                 status=True, user=request.user)
+
+            date = datetime.date.today()
+
+            Tpfecha = Tps.objects.all()
+
+            for tp in Tpfecha:
+                if tp.fecha_entrega < date:
+                    Tpsterminados.objects.filter(tps=tp).update(status=False)
+
             return render(request, "usuario/index.html", {
                 'trabajos': trabajos
             })
-        else:
+
+        elif request.method == 'POST':
             trabajoid = request.POST['id']
             Tpsterminados.objects.filter(id=trabajoid).update(status=False)
             return HttpResponseRedirect(reverse('acc:finalizados'))
+
     else:
         return HttpResponseRedirect(reverse('acc:login'))
 

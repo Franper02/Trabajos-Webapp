@@ -10,6 +10,8 @@
 
 {% block body%}
   
+  <h1>{{date}}</h1>
+
   <div class="tarjeta-contenedor">
     {% for trabajo in trabajos %}
     <div class="tarjeta-wrapper">
@@ -45,7 +47,7 @@
     {% empty %}
     <div class="empty-container">
       <h1 class="empty">¡Estas al dia!</h1>
-      <p>No tenes ningun trabajo pendiente</p>
+      <p class="empty-p">No tenes ningun trabajo pendiente</p>
 
     </div>
     {% endfor %}
