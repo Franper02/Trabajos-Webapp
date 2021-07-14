@@ -11,8 +11,8 @@ body {
 
 .text {
   color: white;
-  font-size: 1.4vw;
-  margin: 0.73vw 2.56vw;
+  font-size: 1.47rem;
+  margin: 0.6em 2.3em;
   font-weight: normal;
   text-align: center;
 }
@@ -28,8 +28,8 @@ body {
 
 .input {
   display: inline-block;
-  min-width: 12.22vw;
-  min-height: 3vw;
+  min-width: 12.83em;
+  min-height: 3.15em;
   vertical-align: middle;
   width: 100%;
 }
@@ -40,18 +40,18 @@ body {
   border-radius: 50px;
   border: 1px solid#1b2956;
   border-top: 1px solid#1b2956;
-  font-size: 0.9vw;
+  font-size: 0.945rem;
   color: white;
-  height: 4vw;
-  padding: 2vw 1vw;
-  margin-bottom: 1vw;
+  height: 4.2em;
+  padding: 2.1em 1.05em;
+  margin-bottom: 1.05em;
   background-color: #1b2956;
 }
 
 .head {
   display: block;
   float: right;
-  margin: 1vw 0px;
+  margin: 1.05em 0%;
 }
 
 .opcion {
@@ -60,7 +60,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 1vw 1vw;
+  margin: 1.05em 1.05em;
   font-size: 0.9rem;
   width: 10rem;
 }
@@ -70,7 +70,7 @@ body {
   float: right;
   height: 30%;
   width: 30%;
-  margin-left: 0.5vw;
+  margin-left: 0.55em;
   opacity: 90%;
 }
 
@@ -78,8 +78,8 @@ body {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  min-width: 12.22vw;
-  min-height: 3vw;
+  min-width: 12.83em;
+  min-height: 3.15em;
   vertical-align: middle;
 }
 
@@ -88,14 +88,28 @@ body {
   border: none;
   color: #fff;
   border-radius: 2px;
-  height: 3vw;
-  min-width: 3.95vw;
+  height: 3.15em;
+  min-width: 4.14em;
   text-align: center;
   float: right;
-  margin: 2.19vw 0;
-  padding: 0 0.87vw;
+  margin: 2.29em 0;
+  padding: 0 0.91em;
 }
 
 input:focus {
   outline: none;
+}
+
+@media (max-width: 992px) {
+  .text {
+    margin: 0.6em 1em;
+  }
+
+  .text h2 {
+    font-size: 2.5rem;
+  }
+
+  .login {
+    padding: 1.3em 0.8em 0;
+  }
 }
