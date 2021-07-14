@@ -45,6 +45,13 @@
     </div>
 
     {% empty %}
+    <style>
+      .tarjeta-contenedor{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+      }
+    </style>
     <div class="empty-container">
       <h1 class="empty">¡No finalizaste ningun trabajo!</h1>
       <p class="empty-p">Probablemente tengas <a href="{% url 'acc:index' %}">Trabajos Pendientes</a></p>

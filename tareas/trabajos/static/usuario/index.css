@@ -37,7 +37,7 @@ body {
   text-decoration: none !important;
   color: white !important;
   font-family: "Roboto", sans-serif !important;
-  font-weight: bold !important;
+  font-size: 1.3rem;
 }
 
 @keyframes FallDown {
@@ -53,8 +53,11 @@ body {
 .tarjeta-contenedor {
   margin: 7% 7% 0% 7%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: 8rem;
+  padding-bottom: 10rem;
+
   animation: FallDown 0.5s linear !important;
 }
 
@@ -71,6 +74,7 @@ body {
   text-align: center;
   transition: all 0.2s ease-in-out;
   opacity: 87%;
+  flex: 1 0 33%;
 }
 
 .tarjeta-wrapper {
@@ -78,7 +82,6 @@ body {
   flex-direction: column;
   min-width: 33%;
   min-height: 33%;
-  margin: 0 2.5%;
   margin-bottom: 0px !important;
   text-align: center;
   transition: all 0.2s ease-in-out;
@@ -206,11 +209,13 @@ body {
 
 @media (max-width: 992px) {
   .tarjeta-contenedor {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     flex-direction: column;
     margin-top: 6rem;
   }
   .tarjeta-wrapper {
-    padding-bottom: 6rem;
     align-items: center;
   }
 
