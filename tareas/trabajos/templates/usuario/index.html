@@ -6,6 +6,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'usuario/index.css' %}">
+<script src="{% static 'usuario/index.js' %}"></script>
 {% endblock %}
 
 {% block body%}
@@ -35,7 +36,7 @@
         <form action="/" method="POST" class="form">
           {% csrf_token %}
           <input type="hidden" name="id" value="{{ trabajo.id }}">
-          <button type="submit" class="entregado">
+          <button onclick="desaparecer()" type="submit" class="entregado">
               Marcar como finalizado
             </button>
       </form>

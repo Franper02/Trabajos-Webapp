@@ -6,6 +6,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'usuario/index.css' %}">
+<script src="{% static 'usuario/index.js' %}"></script>
 {% endblock %}
 
 {% block body%}
@@ -36,7 +37,7 @@
         <form action="/finalizados" method="POST" class="form">
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ trabajo.id }}">
-            <button type="submit" class="entregado" id="pendiente">
+            <button onclick="desaparecer()" type="submit" class="entregado" id="pendiente">
                 Marcar como pendiente
               </button>
         </form>

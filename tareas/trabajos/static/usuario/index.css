@@ -52,6 +52,22 @@ body {
   }
 }
 
+@keyframes Desaparecer {
+  0% {
+    opacity: 87%;
+  }
+  75% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 0%;
+    line-height: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
 .tarjeta-contenedor {
   margin: 7% 2% 0%;
   display: flex;
@@ -90,6 +106,11 @@ body {
   text-align: center;
   transition: all 0.2s ease-in-out;
   opacity: 87%;
+
+  animation-name: Desaparecer;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
 }
 
 .tarjeta:hover {
