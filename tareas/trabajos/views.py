@@ -11,8 +11,6 @@ import datetime
 
 from .models import Tpsterminados, Usuario, Tps
 
-# Create your views here.
-
 
 def index(request):
     if request.user.is_authenticated:
@@ -35,7 +33,7 @@ def index(request):
         elif request.method == 'POST':
             trabajoid = request.POST['id']
             Tpsterminados.objects.filter(id=trabajoid).update(status=False)
-            return HttpResponseRedirect(reverse('acc:finalizados'))
+            return HttpResponseRedirect(reverse('acc:index'))
 
     else:
         return HttpResponseRedirect(reverse('acc:login'))

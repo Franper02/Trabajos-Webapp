@@ -54,13 +54,17 @@ class Tps(models.Model):
     material = models.URLField()
     consignas = models.URLField()
 
+    class Meta:
+        ordering = ('-fecha_entrega',)
+
     def __str__(self):
         return self.titulo
 
 
 def taskdone(sender, instance, **kwargs):
     for user in Usuario.objects.all():
-        Tpsterminados.objects.create(user=user, tps=Tps.objects.last())
+        if not Tpsterminados.objects.filter(user=user, tps=Tps.objects.last()):
+            Tpsterminados.objects.create(user=user, tps=Tps.objects.last())
 
 
 post_save.connect(taskdone, sender=Tps)
