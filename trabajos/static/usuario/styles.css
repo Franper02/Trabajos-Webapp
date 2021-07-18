@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: url("/static/usuario/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  background: transparent;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem 0 1rem 0;
+  width: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  animation: FallDown 0.5s linear;
+  position: absolute;
+  bottom: auto;
+}
+
+@keyframes FallDown {
+  100% {
+    transform: translateY(0);
+  }
+  0%,
+  10% {
+    transform: translateY(-300px);
+  }
+}
+
+.form {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+.head-wrapper {
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  animation: FallDown 0.5s linear;
+}
+
+@media (max-width: 992px) {
+  .contenedor {
+    padding: 0;
+  }
+}

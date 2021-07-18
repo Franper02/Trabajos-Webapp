@@ -1,0 +1,51 @@
+{% extends "usuario/layout.html" %}
+
+
+{% load static %}
+
+{block titile} Iniciar sesion {endblock}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'usuario/forms.css' %}">
+{% endblock %}
+
+{% block header%}
+
+<div class="head">
+    <a href="{% url 'acc:register' %}" class="opcion">Registrarse
+        <img class="flecha" src="{% static 'usuario/flecha2.svg' %}">
+    </a>
+</div>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="text">
+    <h2>Iniciar sesión</h2>
+
+</div>
+
+{{mensaje}}
+
+
+<div class="login">
+    <form action="/login" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="wrapper">
+            <div class="input">
+                <input class="field" type="text" name="username" placeholder="Nombre de usuario" autocomplete="off">
+            </div>
+            <div class="input">
+                <input class="field"type="password" name="password" placeholder="Contraseña">
+            </div>
+        </div>
+            <div class="boton">
+                <input type="submit" value="Iniciar sesión" class="button"> 
+            </div>
+    </form>
+</div>
+
+{% endblock %}
